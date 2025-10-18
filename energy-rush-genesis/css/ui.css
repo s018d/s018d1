@@ -1,0 +1,333 @@
+/* UI Components - Energy Rush */
+/* MIT License - Core Prime MVP */
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--background-color);
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(0, 243, 255, 0.1);
+}
+
+/* Timer Display */
+.timer-display {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
+    background-color: var(--surface-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+}
+
+/* Energy Meter */
+.energy-meter {
+    position: relative;
+    width: 150px;
+    height: 30px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.energy-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success-color), var(--primary-color));
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.energy-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-shadow: 0 0 2px var(--background-color);
+}
+
+/* AI Comments Box */
+.ai-comments {
+    background-color: var(--surface-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.ai-comments p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Abilities Bar */
+.abilities-bar {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--surface-color);
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+}
+
+.ability-slot {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: var(--background-color);
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.ability-icon {
+    font-size: 1.5rem;
+}
+
+.cooldown-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 6px;
+    display: none;
+}
+
+.ability-slot.cooldown .cooldown-overlay {
+    display: block;
+}
+
+.ability-slot:not(.cooldown):hover {
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--surface-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 90%;
+    width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.setting-group {
+    margin-bottom: 1.5rem;
+}
+
+.setting-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.setting-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.setting-group select {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+/* Results Screen */
+.results-container {
+    text-align: center;
+    background-color: var(--surface-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 400px;
+}
+
+.results-stats {
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat {
+    font-size: 1.1rem;
+}
+
+.results-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Workshop */
+.shop-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.shop-item {
+    background-color: var(--background-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.shop-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.shop-item p {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.qpoints-display {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--warning-color);
+    margin-bottom: 1rem;
+}
+
+/* Tutorial Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.tutorial-content {
+    background-color: var(--surface-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 90%;
+    width: 400px;
+    text-align: center;
+}
+
+.tutorial-step h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.tutorial-step p {
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.skip-btn {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Leaderboard */
+.leaderboard-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+}
+
+.leaderboard-entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.leaderboard-entry:nth-child(odd) {
+    background-color: rgba(0, 243, 255, 0.1);
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Focus styles for accessibility */
+button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+select:focus, input:focus {
+    outline: 2px solid var(--primary-color);
+}

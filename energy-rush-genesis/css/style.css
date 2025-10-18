@@ -1,0 +1,289 @@
+/* Energy Rush: Genesis Protocol - Main Styles */
+/* MIT License - Core Prime MVP */
+
+:root {
+    /* Neon Blue Theme - Default */
+    --primary-color: #00f3ff;
+    --secondary-color: #0066ff;
+    --accent-color: #ff0080;
+    --background-color: #0a0a1a;
+    --surface-color: #151530;
+    --text-color: #ffffff;
+    --danger-color: #ff4444;
+    --success-color: #00ff88;
+    --warning-color: #ffaa00;
+}
+
+[data-theme="neon-purple-gold"] {
+    --primary-color: #b967ff;
+    --secondary-color: #ffd700;
+    --accent-color: #ff44cc;
+    --background-color: #1a0a1a;
+    --surface-color: #301530;
+    --text-color: #ffffff;
+    --danger-color: #ff4444;
+    --success-color: #a0ff88;
+    --warning-color: #ffcc00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow: hidden;
+    user-select: none;
+}
+
+/* Screen Management */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Start Screen */
+.title-container {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.game-title {
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.game-subtitle {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    text-shadow: 0 0 5px var(--secondary-color);
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Game Screen Layout */
+#game-screen {
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.hud-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.hud-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hud-middle {
+    display: flex;
+    justify-content: center;
+}
+
+.hud-bottom {
+    display: flex;
+    justify-content: center;
+}
+
+/* Game Area */
+.game-area {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 60vh;
+    background-color: var(--surface-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+/* Spawned Elements */
+.spawned-element {
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.spawned-element:hover {
+    transform: scale(1.1);
+}
+
+[data-type="gen"] {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    width: 60px;
+    height: 60px;
+}
+
+[data-type="hazard"] {
+    background: linear-gradient(135deg, var(--danger-color), #ff0000);
+    width: 50px;
+    height: 50px;
+}
+
+[data-type="freeze"] {
+    background: linear-gradient(135deg, #00ffff, #0088ff);
+    width: 45px;
+    height: 45px;
+}
+
+[data-type="rare"] {
+    background: linear-gradient(135deg, var(--warning-color), #ff8800);
+    width: 55px;
+    height: 55px;
+    animation: glow 2s infinite;
+}
+
+/* Ad Banner */
+.ad-banner {
+    width: 100%;
+    max-width: 320px;
+    height: 50px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 2rem;
+    }
+    
+    .game-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .game-area {
+        height: 50vh;
+    }
+    
+    .hud-top {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-title {
+        font-size: 1.8rem;
+    }
+    
+    .game-area {
+        height: 45vh;
+    }
+    
+    .spawned-element {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    [data-type="gen"] {
+        width: 50px !important;
+        height: 50px !important;
+    }
+}
+/* Mobile Touch Improvements */
+@media (max-width: 768px) {
+    .btn-primary, .btn-secondary {
+        min-width: 180px;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .spawned-element {
+        width: 65px !important;
+        height: 65px !important;
+        min-width: 65px;
+        min-height: 65px;
+    }
+    
+    [data-type="gen"] {
+        width: 70px !important;
+        height: 70px !important;
+    }
+    
+    .ability-slot {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .ability-icon {
+        font-size: 1.8rem;
+    }
+    
+    .hud-container {
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+    
+    .timer-display {
+        font-size: 1.3rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .energy-meter {
+        width: 130px;
+        height: 28px;
+    }
+}
+
+/* Prevent zoom on double-tap */
+.game-area, .abilities-bar, .menu-buttons {
+    touch-action: manipulation;
+}
+
+/* Better touch targets */
+.spawned-element {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+/* Prevent text selection */
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Improve button touch */
+.btn-primary, .btn-secondary, .ability-slot {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}

@@ -1,0 +1,169 @@
+/* Mobile Touch Optimizations - Energy Rush */
+/* تحسينات اللمس للجوال */
+
+/* Larger touch targets for mobile */
+@media (max-width: 480px) {
+    .menu-buttons {
+        gap: 0.8rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        min-width: 200px;
+        padding: 1.2rem 2rem;
+        font-size: 1.2rem;
+        border-radius: 8px;
+    }
+    
+    .game-area {
+        height: 55vh;
+        border-width: 3px;
+    }
+    
+    .spawned-element {
+        width: 70px !important;
+        height: 70px !important;
+        border-radius: 35px;
+    }
+    
+    [data-type="gen"] {
+        width: 75px !important;
+        height: 75px !important;
+    }
+    
+    .abilities-bar {
+        gap: 0.8rem;
+        padding: 0.8rem;
+    }
+    
+    .ability-slot {
+        width: 65px;
+        height: 65px;
+        border-radius: 10px;
+        border-width: 3px;
+    }
+    
+    .ability-icon {
+        font-size: 2rem;
+    }
+    
+    /* Improve HUD spacing */
+    .hud-top {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .timer-display {
+        font-size: 1.4rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .energy-meter {
+        width: 160px;
+        height: 32px;
+        border-radius: 16px;
+    }
+    
+    .energy-text {
+        font-size: 0.9rem;
+    }
+    
+    /* Modal improvements */
+    .modal-content {
+        padding: 1.5rem;
+        margin: 1rem;
+        width: auto;
+    }
+    
+    .shop-items {
+        gap: 1.2rem;
+    }
+    
+    .shop-item {
+        padding: 1.2rem;
+    }
+}
+
+/* Landscape orientation support */
+@media (max-height: 500px) and (orientation: landscape) {
+    .game-area {
+        height: 70vh;
+        max-height: 300px;
+    }
+    
+    .hud-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .hud-top {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .hud-middle {
+        order: 3;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    .hud-bottom {
+        order: 2;
+    }
+    
+    #ad-banner {
+        display: none; /* Hide ad in landscape */
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+    .game-title {
+        font-size: 1.6rem;
+    }
+    
+    .game-subtitle {
+        font-size: 1rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        min-width: 180px;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .spawned-element {
+        width: 60px !important;
+        height: 60px !important;
+    }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .spawned-element {
+        border: 2px solid rgba(255, 255, 255, 0.8);
+    }
+    
+    .ability-slot {
+        border-width: 3px;
+    }
+}
+
+/* Smooth transitions for all interactive elements */
+.btn-primary, .btn-secondary, .ability-slot, .spawned-element {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Active state feedback */
+.btn-primary:active, .btn-secondary:active {
+    transform: scale(0.95);
+}
+
+.ability-slot:active {
+    transform: scale(0.9);
+}
+
+.spawned-element:active {
+    transform: scale(0.85) !important;
+}

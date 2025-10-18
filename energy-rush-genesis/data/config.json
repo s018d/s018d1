@@ -1,0 +1,39 @@
+{
+  "level1": {
+    "name": "Core Prime",
+    "duration": 30,
+    "spawnRate": 1000,
+    "energyGoal": 100,
+    "spawnPool": [
+      {"type": "gen", "weight": 5},
+      {"type": "hazard", "weight": 3},
+      {"type": "freeze", "weight": 1},
+      {"type": "rare", "weight": 0.5}
+    ]
+  },
+  "themes": {
+    "neon-blue": {
+      "primary": "#00f3ff",
+      "secondary": "#0066ff",
+      "accent": "#ff0080",
+      "background": "#0a0a1a",
+      "surface": "#151530"
+    },
+    "neon-purple-gold": {
+      "primary": "#b967ff",
+      "secondary": "#ffd700",
+      "accent": "#ff44cc",
+      "background": "#1a0a1a",
+      "surface": "#301530"
+    }
+  },
+  "events": {
+    "checkInterval": 10000,
+    "eventChance": 0.3
+  },
+  "abilities": {
+    "freeze": {"cost": 25, "cooldown": 15000},
+    "turbo": {"cost": 30, "cooldown": 20000},
+    "quantumVision": {"cost": 40, "cooldown": 25000}
+  }
+}

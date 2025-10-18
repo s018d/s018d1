@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Mobile Specific Meta Tags -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0a1a">
+<meta name="msapplication-TileColor" content="#0a0a1a">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Rush: Genesis Protocol</title>
+   
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/mobile-touch.css">
+</head>
+<body>
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+        <div class="title-container">
+            <h1 class="game-title">Energy Rush</h1>
+            <h2 class="game-subtitle">Genesis Protocol</h2>
+        </div>
+        <div class="menu-buttons">
+            <button id="start-btn" class="btn-primary">Start Mission</button>
+            <button id="settings-btn" class="btn-secondary">Settings</button>
+            <button id="leaderboard-btn" class="btn-secondary">Leaderboard</button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <!-- Game HUD -->
+        <div class="hud-container">
+            <div class="hud-top">
+                <div class="timer-display" id="timer">00:30</div>
+                <div class="energy-meter">
+                    <div class="energy-fill" id="energy-fill"></div>
+                    <span class="energy-text" id="energy-text">0/100</span>
+                </div>
+            </div>
+            
+            <div class="hud-middle">
+                <!-- AI Comments Box -->
+                <div id="ai-comments" class="ai-comments hidden">
+                    <p id="ai-comment-text"></p>
+                </div>
+            </div>
+
+            <div class="hud-bottom">
+                <!-- Ability Icons -->
+                <div class="abilities-bar">
+                    <div class="ability-slot" data-ability="freeze">
+                        <div class="ability-icon">❄️</div>
+                        <div class="cooldown-overlay"></div>
+                    </div>
+                    <div class="ability-slot" data-ability="turbo">
+                        <div class="ability-icon">⚡</div>
+                        <div class="cooldown-overlay"></div>
+                    </div>
+                    <div class="ability-slot" data-ability="quantumVision">
+                        <div class="ability-icon">👁️</div>
+                        <div class="cooldown-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Area -->
+        <div id="game-area" class="game-area">
+            <!-- Spawned elements will appear here -->
+        </div>
+
+        <!-- Ad Banner -->
+        <div id="ad-banner" class="ad-banner">
+            <!-- Insert Ad Code Here -->
+            Ad Banner Placeholder
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+        <div class="results-container">
+            <h2 id="results-title">Mission Complete</h2>
+            <p id="results-message"></p>
+            <div class="results-stats">
+                <div class="stat">Final Energy: <span id="final-energy">0</span></div>
+                <div class="stat">Quantum Points: +<span id="qpoints-earned">0</span></div>
+            </div>
+            <div class="results-buttons">
+                <button id="retry-btn" class="btn-primary">Retry Mission</button>
+                <button id="workshop-btn" class="btn-secondary">Workshop</button>
+                <button id="menu-btn" class="btn-secondary">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Settings</h2>
+            <div class="setting-group">
+                <label>
+                    <input type="checkbox" id="ai-comments-toggle">
+                    AI Comments
+                </label>
+                <label>
+                    <input type="checkbox" id="sound-toggle">
+                    Sound
+                </label>
+            </div>
+            <div class="setting-group">
+                <label>Theme:</label>
+                <select id="theme-selector">
+                    <option value="neon-blue">Neon Blue</option>
+                    <option value="neon-purple-gold">Neon Purple+Gold</option>
+                </select>
+            </div>
+            <button id="settings-close" class="btn-primary">Close</button>
+        </div>
+    </div>
+
+    <div id="leaderboard-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Leaderboard</h2>
+            <div id="leaderboard-list" class="leaderboard-list">
+                <!-- Leaderboard entries will be populated here -->
+            </div>
+            <button id="leaderboard-close" class="btn-primary">Close</button>
+        </div>
+    </div>
+
+    <div id="workshop-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Quantum Workshop</h2>
+            <div class="shop-items">
+                <div class="shop-item" data-upgrade="startingEnergy">
+                    <h3>Starting Energy +10</h3>
+                    <p>Cost: 50 QP</p>
+                    <button class="btn-primary buy-btn">Purchase</button>
+                </div>
+                <div class="shop-item" data-upgrade="hazardReduction">
+                    <h3>Hazard Penalty -5</h3>
+                    <p>Cost: 75 QP</p>
+                    <button class="btn-primary buy-btn">Purchase</button>
+                </div>
+                <div class="shop-item" data-upgrade="extraAbility">
+                    <h3>Extra Ability Slot</h3>
+                    <p>Cost: 100 QP</p>
+                    <button class="btn-primary buy-btn">Purchase</button>
+                </div>
+            </div>
+            <div class="qpoints-display">
+                Quantum Points: <span id="current-qpoints">0</span>
+            </div>
+            <button id="workshop-close" class="btn-primary">Close</button>
+        </div>
+    </div>
+
+    <!-- Tutorial Overlay -->
+    <div id="tutorial-overlay" class="overlay hidden">
+        <div class="tutorial-content">
+            <div id="tutorial-step-1" class="tutorial-step">
+                <h3>Step 1: Collect Energy</h3>
+                <p>اضغط على الدائرة الزرقاء لزيادة الطاقة</p>
+                <button class="btn-primary tutorial-next">Next</button>
+            </div>
+            <div id="tutorial-step-2" class="tutorial-step hidden">
+                <h3>Step 2: Avoid Hazards</h3>
+                <p>تجنّب الأحمر - Hazards reduce your energy</p>
+                <button class="btn-primary tutorial-next">Next</button>
+            </div>
+            <div id="tutorial-step-3" class="tutorial-step hidden">
+                <h3>Step 3: Use Abilities</h3>
+                <p>جرب freeze لتجميد الوقت - Abilities help you succeed</p>
+                <button class="btn-primary tutorial-complete">Complete Tutorial</button>
+            </div>
+            <button id="skip-tutorial" class="btn-secondary skip-btn">Skip Tutorial Forever</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/ai_system.js"></script>
+    <script type="module" src="js/abilities.js"></script>
+    <script type="module" src="js/levels.js"></script>
+    <script type="module" src="js/tutorial.js"></script>
+    <script type="module" src="js/events.js"></script>
+    <script type="module" src="js/store.js"></script>
+</body>
+</html>
